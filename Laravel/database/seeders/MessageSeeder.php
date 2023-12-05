@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Message;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +14,9 @@ class MessageSeeder extends Seeder
      */
     public function run(): void
     {
-        //remove all data from table
+        // Empty the messages table
         Message::truncate();
-        //add 500 new records
-        Message::factory()
-            ->count(500)
-            ->create();
+        // Add 100 messages 
+        Message::factory(100)->create();
     }
 }

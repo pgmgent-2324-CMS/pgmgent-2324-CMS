@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Message;
+use App\Models\Teacher;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,14 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //run message seeder
+        // Load all seeders
         $this->call(MessageSeeder::class);
 
-        //remove all data from table
-        //Message::truncate();
-        //add 500 new records
-        //Message::factory()
-        //    ->count(500)
-        //    ->create();
+        Teacher::factory(100)->create();
+
     }
 }
