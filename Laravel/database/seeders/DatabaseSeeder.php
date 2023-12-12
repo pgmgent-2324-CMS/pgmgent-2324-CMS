@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Load all seeders
-        $this->call(MessageSeeder::class);
-
-        Teacher::factory(100)->create();
+        //$this->call(MessageSeeder::class);
+        $this->call(TeacherSeeder::class);
+        $this->call(CourseSeeder::class);
 
     }
 }

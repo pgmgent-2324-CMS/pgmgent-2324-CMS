@@ -4,15 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 class TeacherController extends Controller
 {
     public function index() {
+        // alle countries
+        $countries = DB::table('teachers')
+            ->select('country', DB::raw('count(*) as total'))
+            ->groupBy('country')
+            ->orderBy('country', 'asc')
+            ->get();
 
-        $teachers = Teacher::all();
+        $search = request('search');
+        $country = request('country');
+
+        //$teachers = DB::table('teachers')->get();
+
+
+        $querybuilder = Teacher::query()->orderBy('firstname');
+
+        if($search) {
+            $querybuilder->where('firstname', 'LIKE', '%' . $search . '%')
+                    ->orWhere('lastname', 'LIKE', '%' . $search . '%'); 
+        }
+
+        if($country) {
+            $querybuilder->where('country', $country);
+        }
+        
+        $teachers = $querybuilder->simplePaginate(10)->withQueryString();
+        //
+        //dd($teachers);
 
         return view('teacher.list', [
             'teachers' => $teachers,
+            'countries' => $countries,
         ]);
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email', 200);
             $table->string('phone', 200);
             $table->string('fax', 200);
+            $table->int('school_id');
             $table->timestamps();
         });
     }

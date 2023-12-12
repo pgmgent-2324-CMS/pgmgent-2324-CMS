@@ -22,6 +22,9 @@ class TeacherFactory extends Factory
             'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->e164PhoneNumber(),
             'fax' => $this->faker->e164PhoneNumber(),
+            'country' => $this->faker->country(),
+            'city' => $this->faker->city(),
+            'language' => $this->faker->languageCode(),
             'created_at' => $this->faker->dateTimeInInterval('-50 week', '+50 week'),
         ];
     }
