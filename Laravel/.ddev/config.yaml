@@ -1,7 +1,7 @@
 name: first-laravel
 type: laravel
 docroot: public
-php_version: "8.1"
+php_version: "8.2"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -19,7 +19,9 @@ host_https_port: "8001"
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
-nodejs_version: "16"
+nodejs_version: "18"
+
+
 
 # Key features of ddev's config.yaml:
 

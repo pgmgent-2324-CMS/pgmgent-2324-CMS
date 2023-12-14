@@ -1,3 +1,6 @@
 *.DS_Store
 *composer.lock
 *.env
+Laravel/package-lock.json
+Laravel/public/assets/app-3cf9d940.css
+Laravel/public/assets/app-ba1c026e.js
