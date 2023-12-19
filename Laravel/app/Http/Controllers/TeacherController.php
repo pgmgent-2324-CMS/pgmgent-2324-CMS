@@ -34,7 +34,7 @@ class TeacherController extends Controller
             $querybuilder->where('country', $country);
         }
         
-        $teachers = $querybuilder->simplePaginate(10)->withQueryString();
+        $teachers = $querybuilder->simplePaginate(30)->withQueryString();
         //
         //dd($teachers);
 

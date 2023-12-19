@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.myapp')
 
 @section('content')
 
@@ -16,6 +16,7 @@
     <button type="submit">Search</button>
 </form>
 
+<div id="teachers">
 @foreach($teachers as $teacher)
     <p>
         <a href="/teacher/{{ $teacher->id }}">
@@ -26,9 +27,8 @@
         </a>
     </p>
 @endforeach
+</div>
 
 {{ $teachers->links() }}
-
-
 
 @endsection
